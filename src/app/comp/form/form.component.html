@@ -1,0 +1,74 @@
+<p>form is furuchit</p>
+<form [formGroup]="form" novalidate (ngSubmit)="submit()">
+
+  <div class="equations">
+    <div>
+      <mat-radio-group formControlName="equation" aria-label="выберите уравнение" >
+        <mat-radio-button value="1" >y' = x<sup>3</sup>+x<sup>2</sup></mat-radio-button>
+        <br>
+        <mat-radio-button value="2" >y' = x+x<sup>2</sup> + y</mat-radio-button>
+        <br>
+        <mat-radio-button value="3" >y' = x+sinx</mat-radio-button>
+        <br>
+        <mat-radio-button value="4" >y' = y+ (1+x)y<sup>2</sup></mat-radio-button>
+      </mat-radio-group>
+    </div>
+
+  </div>
+  <div>
+    <br>
+    <div>
+      <p-inputGroupAddon>
+        начало интервала x<sub>0</sub>
+      </p-inputGroupAddon>
+      <input name="leftBorderX" type="text" pInputText formControlName="leftBorderX"  />
+      <div *ngIf="form.controls['leftBorderX'].invalid && form.controls['leftBorderX'].touched">
+        <div class="alert">начало интервала is required</div>
+      </div>
+    </div>
+    <br>
+    <div>
+      <p-inputGroupAddon>
+        значение y<sub>0</sub>
+      </p-inputGroupAddon>
+      <input type="text" pInputText name="yInLeftBorder" formControlName="yInLeftBorder"  />
+      <div *ngIf="form.controls['yInLeftBorder'].invalid && form.controls['yInLeftBorder'].touched">
+        <div class="alert">значение y<sub>0</sub> is required</div>
+      </div>
+    </div>
+    <br>
+    <div>
+      <p-inputGroupAddon>
+        конец интервала x<sub>n</sub>
+      </p-inputGroupAddon>
+      <input type="text" pInputText name="rightBorderX" formControlName="rightBorderX"  />
+      <div *ngIf="form.controls['rightBorderX'].invalid && form.controls['rightBorderX'].touched">
+        <div class="alert">конец интервала is required</div>
+      </div>
+    </div>
+    <br>
+    <div>
+      <p-inputGroupAddon>
+        погрешность
+      </p-inputGroupAddon>
+      <input type="text" pInputText name="inaccuracy" formControlName="inaccuracy"  />
+      <div *ngIf="form.controls['inaccuracy'].invalid && form.controls['inaccuracy'].touched">
+        <div class="alert">inaccuracy is required and <=0.1</div>
+      </div>
+    </div>
+    <br>
+    <div>
+      <p-inputGroupAddon>
+        шаг
+      </p-inputGroupAddon>
+      <input type="text" pInputText name="step" formControlName="step"  />
+      <div *ngIf="form.controls['step'].invalid && form.controls['step'].touched">
+        <div class="alert">шаг is required and <=0.1</div>
+      </div>
+    </div>
+    <br>
+    <p-button type="submit" [disabled]="form.invalid">решить оду</p-button>
+  </div>
+</form>
+<br>
+

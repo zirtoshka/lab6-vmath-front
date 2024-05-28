@@ -1,0 +1,6 @@
+.disp{
+    display: flex;
+    flex-direction: row;
+    gap: 5%;
+    justify-content: center;
+}

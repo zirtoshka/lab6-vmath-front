@@ -1,1 +1,9 @@
 <h1>helo</h1>
+<div class="disp">
+<app-graph #graphComponent></app-graph>
+<app-form #funcComponent (choseEvent)="graphComponent.odeDraw($event)" ></app-form>
+</div>
+
+<div class="card flex justify-content-center">
+    <p-toast></p-toast>
+</div>
