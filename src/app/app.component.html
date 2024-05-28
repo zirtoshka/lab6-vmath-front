@@ -2,8 +2,33 @@
 <div class="disp">
 <app-graph #graphComponent></app-graph>
 <app-form #funcComponent (choseEvent)="graphComponent.odeDraw($event)" ></app-form>
+  <div class="res">
+    <table>
+      <thead>
+      <tr>
+        <th>иксы</th>
+        <th>точное значение</th>
+        <th>рунге</th>
+        <th>модиф эйлер</th>
+        <th>милне</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let row of appService.dataUser">
+        <td>{{ row.x }}</td>
+        <td>{{ row.exact }}</td>
+        <td>{{ row.runge }}</td>
+        <td>{{ row.euler }}</td>
+        <td>{{ row.milne }}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+
 </div>
 
 <div class="card flex justify-content-center">
     <p-toast></p-toast>
 </div>
+
+

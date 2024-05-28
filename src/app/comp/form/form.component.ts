@@ -5,7 +5,7 @@ import {Req} from "../../request";
 import {MatRadioButton, MatRadioChange, MatRadioGroup} from "@angular/material/radio";
 import {InputGroupAddonModule} from "primeng/inputgroupaddon";
 import {ButtonModule} from "primeng/button";
-import {NgIf} from "@angular/common";
+import {NgForOf, NgIf} from "@angular/common";
 import {InputTextModule} from "primeng/inputtext";
 import {Respon} from "../../response";
 
@@ -13,15 +13,16 @@ import {Respon} from "../../response";
 @Component({
     selector: 'app-form',
     standalone: true,
-    imports: [
-        ReactiveFormsModule,
-        InputGroupAddonModule,
-        ButtonModule,
-        NgIf,
-        MatRadioGroup,
-        MatRadioButton,
-        InputTextModule
-    ],
+  imports: [
+    ReactiveFormsModule,
+    InputGroupAddonModule,
+    ButtonModule,
+    NgIf,
+    MatRadioGroup,
+    MatRadioButton,
+    InputTextModule,
+    NgForOf
+  ],
     templateUrl: './form.component.html',
     styleUrl: './form.component.css'
 })
@@ -65,10 +66,13 @@ export class FormComponent {
 
         this.appService.odeRequest(
             requestData
+
         ).subscribe({
             next: (response) => {
                 console.log(response);
                 this.choseEvent.emit(response);
+              this.appService.dataUser = this.appService.getStringRes(response);
+
 
             },
             error: (error) => {

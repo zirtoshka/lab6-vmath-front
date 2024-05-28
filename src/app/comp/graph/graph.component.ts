@@ -46,7 +46,7 @@ export class GraphComponent {
       dash: 2, strokeColor: 'red', strokeWidth: 3
     }));
     this.lines.push(this.board.create('curve', [xList,milne], {
-      dash: 2, strokeColor: 'fuchsia', strokeWidth: 1
+      dash: 2, strokeColor: 'fuchsia', strokeWidth: 3
     }));
 
   }

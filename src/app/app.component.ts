@@ -4,11 +4,12 @@ import {AppService} from "./app.service";
 import {GraphComponent} from "./comp/graph/graph.component";
 import {FormComponent} from "./comp/form/form.component";
 import {ToastModule} from "primeng/toast";
+import {NgForOf} from "@angular/common";
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, GraphComponent, FormComponent, ToastModule],
+    imports: [RouterOutlet, GraphComponent, FormComponent, ToastModule, NgForOf],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
